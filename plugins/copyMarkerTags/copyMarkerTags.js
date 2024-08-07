@@ -73,11 +73,11 @@
     input.dispatchEvent(inputEvent);
   }
 
-  
-
   // Wait for video player to load on scene page.
-  stash.addEventListener("stash:page:scene", function () {
-    waitForElementByXpath("//label[@for='primary_tag_id']", setupMarkerCopyPasteButtons);
-  });
+  csLib.PathElementListener(
+    "/scenes/",
+    "label[for='primary_tag_id']",
+    setupMarkerCopyPasteButtons
+  ); // PathElementListener is from cs-ui-lib.js
 })();
 
